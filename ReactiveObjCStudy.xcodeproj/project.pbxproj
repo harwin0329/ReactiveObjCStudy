@@ -106,6 +106,7 @@
 		F7ED151A24641457006D60A5 /* RACImmediateScheduler.m in Sources */ = {isa = PBXBuildFile; fileRef = F7ED14BC24641457006D60A5 /* RACImmediateScheduler.m */; };
 		F7ED151B24641457006D60A5 /* RACTuple.m in Sources */ = {isa = PBXBuildFile; fileRef = F7ED14C024641457006D60A5 /* RACTuple.m */; };
 		F7ED151C24641457006D60A5 /* NSIndexSet+RACSequenceAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = F7ED14C224641457006D60A5 /* NSIndexSet+RACSequenceAdditions.m */; };
+		F7ED152024650CE7006D60A5 /* Person.m in Sources */ = {isa = PBXBuildFile; fileRef = F7ED151F24650CE7006D60A5 /* Person.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -333,6 +334,8 @@
 		F7ED14C024641457006D60A5 /* RACTuple.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RACTuple.m; sourceTree = "<group>"; };
 		F7ED14C124641457006D60A5 /* RACKVOChannel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RACKVOChannel.h; sourceTree = "<group>"; };
 		F7ED14C224641457006D60A5 /* NSIndexSet+RACSequenceAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSIndexSet+RACSequenceAdditions.m"; sourceTree = "<group>"; };
+		F7ED151E24650CE7006D60A5 /* Person.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Person.h; sourceTree = "<group>"; };
+		F7ED151F24650CE7006D60A5 /* Person.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Person.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -383,6 +386,7 @@
 		F7ED107924641229006D60A5 /* ReactiveObjCStudy */ = {
 			isa = PBXGroup;
 			children = (
+				F7ED151D24650CB1006D60A5 /* Others */,
 				F7ED140424641457006D60A5 /* ReactiveObjC */,
 				F7ED107A24641229006D60A5 /* AppDelegate.h */,
 				F7ED107B24641229006D60A5 /* AppDelegate.m */,
@@ -622,6 +626,15 @@
 			path = extobjc;
 			sourceTree = "<group>";
 		};
+		F7ED151D24650CB1006D60A5 /* Others */ = {
+			isa = PBXGroup;
+			children = (
+				F7ED151E24650CE7006D60A5 /* Person.h */,
+				F7ED151F24650CE7006D60A5 /* Person.m */,
+			);
+			path = Others;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -754,6 +767,7 @@
 			files = (
 				F7ED14D324641457006D60A5 /* RACStream.m in Sources */,
 				F7ED14EC24641457006D60A5 /* RACKVOChannel.m in Sources */,
+				F7ED152024650CE7006D60A5 /* Person.m in Sources */,
 				F7ED150D24641457006D60A5 /* UIActionSheet+RACSignalSupport.m in Sources */,
 				F7ED14F624641457006D60A5 /* RACScopedDisposable.m in Sources */,
 				F7ED14E424641457006D60A5 /* NSOrderedSet+RACSequenceAdditions.m in Sources */,
