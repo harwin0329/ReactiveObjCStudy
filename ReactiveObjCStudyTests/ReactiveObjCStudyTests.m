@@ -6,7 +6,7 @@
 //  Copyright © 2020 WoQi. All rights reserved.
 //
 
-#import <XCTest/XCTest.h>
+#import <XCTest/XCTest"
 
 @interface ReactiveObjCStudyTests : XCTestCase
 
