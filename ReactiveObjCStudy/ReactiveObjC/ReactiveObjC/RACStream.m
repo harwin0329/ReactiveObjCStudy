@@ -81,12 +81,18 @@
 			return stream;
 		};
 	}] setNameWithFormat:@"[%@] -flattenMap:", self.name];
+    /*
+     flattenMap的实现是放在其父类RACStream中的，但其实内部是调用了bind方法，对原信号进行block转换之后变成新的信号。
+    */
 }
 
 - (__kindof RACStream *)flatten {
 	return [[self flattenMap:^(id value) {
 		return value;
 	}] setNameWithFormat:@"[%@] -flatten", self.name];
+    /*
+     flatten其实是对高阶信号(信号的信号)的一次降阶，如果不是高阶信号，那么就会命中Assert。
+    */
 }
 
 - (__kindof RACStream *)map:(id (^)(id value))block {
@@ -97,12 +103,18 @@
 	return [[self flattenMap:^(id value) {
 		return [class return:block(value)];
 	}] setNameWithFormat:@"[%@] -map:", self.name];
+    /*
+     map的实现是进行了一次flattenMap，对新的信号的值进行block(value)，
+    */
 }
 
 - (__kindof RACStream *)mapReplace:(id)object {
 	return [[self map:^(id _) {
 		return object;
 	}] setNameWithFormat:@"[%@] -mapReplace: %@", self.name, RACDescription(object)];
+    /*
+     mapReplace的操作是不管原先的signal发送什么消息，都会统一替换成object。（感觉这个需求会比较少）。
+    */
 }
 
 - (__kindof RACStream *)combinePreviousWithStart:(id)start reduce:(id (^)(id previous, id next))reduceBlock {
@@ -131,6 +143,9 @@
 			return class.empty;
 		}
 	}] setNameWithFormat:@"[%@] -filter:", self.name];
+    /*
+     filter的实现和map的实现类似，但是会把block的返回值作为判断条件，不满足则会返回空的signal。
+    */
 }
 
 - (__kindof RACStream *)ignore:(id)value {

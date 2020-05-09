@@ -489,6 +489,9 @@ static RACDisposable *subscribeForever (RACSignal *signal, void (^next)(id), voi
 		}]
 		flatten]
 		setNameWithFormat:@"+merge: %@", copiedSignals];
+    /*
+     merge的操作接受参数是一个signal的数组，内部会创建一个copiedSignals的数组，然后依次发送这个数组中的信号，由于新的信号也是一个高阶信号，需要flatten操作，将flatten操作之后的值发送出去。
+    */
 }
 
 - (RACSignal *)flatten:(NSUInteger)maxConcurrent {

@@ -16,17 +16,17 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface MKAnnotationView (RACSignalSupport)
 
-/// A signal which will send a RACUnit whenever -prepareForReuse is invoked upon
-/// the receiver.
-///
-/// Examples
-///
-///  [[[self.cancelButton
-///     rac_signalForControlEvents:UIControlEventTouchUpInside]
-///     takeUntil:self.rac_prepareForReuseSignal]
-///     subscribeNext:^(UIButton *x) {
-///         // do other things
-///     }];
+// A signal which will send a RACUnit whenever -prepareForReuse is invoked upon
+// the receiver.
+//
+// Examples
+//
+//  [[[self.cancelButton
+//     rac_signalForControlEvents:UIControlEventTouchUpInside]
+//     takeUntil:self.rac_prepareForReuseSignal]
+//     subscribeNext:^(UIButton *x) {
+//         // do other things
+//     }];
 @property (nonatomic, strong, readonly) RACSignal<RACUnit *> *rac_prepareForReuseSignal;
 
 @end

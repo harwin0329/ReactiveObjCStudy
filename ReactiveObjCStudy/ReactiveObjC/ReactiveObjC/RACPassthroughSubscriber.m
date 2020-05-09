@@ -32,18 +32,27 @@ static const char *cleanedSignalDescription(RACSignal *signal) {
 
 @interface RACPassthroughSubscriber ()
 
-// The subscriber to which events should be forwarded.
+ /*
+  The subscriber to which events should be forwarded.
+  
+  事件应转发到的subscriber。
+ */
 @property (nonatomic, strong, readonly) id<RACSubscriber> innerSubscriber;
 
-// The signal sending events to this subscriber.
-//
-// This property isn't `weak` because it's only used for DTrace probes, so
-// a zeroing weak reference would incur an unnecessary performance penalty in
-// normal usage.
+/*
+ The signal sending events to this subscriber.
+ This property isn't `weak` because it's only used for DTrace probes, so a zeroing weak reference would incur an unnecessary performance penalty in normal usage.
+ 
+ 发送事件到此订阅服务器的信号。
+ 这个属性不能是“weak”，因为它只用于DTrace探测，所以调零弱引用在正常使用中会导致不必要的性能损失。
+*/
 @property (nonatomic, unsafe_unretained, readonly) RACSignal *signal;
 
-// A disposable representing the subscription. When disposed, no further events
-// should be sent to the `innerSubscriber`.
+/*
+ A disposable representing the subscription. When disposed, no further events should be sent to the `innerSubscriber`.
+
+ 表示订阅的一次性符号。当disposed时，不应该将其他事件发送到“innerSubscriber”。
+*/
 @property (nonatomic, strong, readonly) RACCompoundDisposable *disposable;
 
 @end
